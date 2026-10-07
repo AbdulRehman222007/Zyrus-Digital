@@ -15,8 +15,7 @@ export default function CaseStudy() {
 
       <div className="max-w-[1400px] mx-auto px-5 lg:px-10 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-          
-          {/* Left: Image with overlapping stat card */}
+          {/* Left: Image with stat card */}
           <div className="lg:col-span-7 relative group">
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-[#FFF5E8]">
               <Image
@@ -29,17 +28,18 @@ export default function CaseStudy() {
               <div className="absolute inset-0 bg-gradient-to-tr from-[#33241F]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            {/* Floating Stat Card */}
-<div className="relative mt-4 mx-2 md:mt-0 md:mx-0 md:absolute md:-bottom-8 md:right-16 bg-[#FFF5E8]/95 backdrop-blur-md p-5 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(138,90,59,0.3)] border border-[#D9B48F]/50 z-20">
-  <div className="flex flex-col gap-4">
-    {results.map((r, i) => (
-      <div key={i} className="flex items-center justify-between gap-8 border-b border-[#D9B48F]/30 pb-3 last:border-0 last:pb-0">
-        <span className="text-xs font-bold text-[#8A5A3B] uppercase tracking-wider">{r.label}</span>
-        <span className="text-lg font-bold text-[#33241F]">{r.value}</span>
-      </div>
-    ))}
-  </div>
-</div>
+            {/* Stat Card */}
+            <div className="relative mt-4 mx-2 md:mt-0 md:mx-0 md:absolute md:-bottom-8 md:right-16 bg-[#FFF5E8]/95 backdrop-blur-md p-5 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(138,90,59,0.3)] border border-[#D9B48F]/50 z-20">
+              <div className="flex flex-col gap-4">
+                {results.map((r, i) => (
+                  <div key={i} className="flex items-center justify-between gap-8 border-b border-[#D9B48F]/30 pb-3 last:border-0 last:pb-0">
+                    <span className="text-xs font-bold text-[#8A5A3B] uppercase tracking-wider">{r.label}</span>
+                    <span className="text-lg font-bold text-[#33241F]">{r.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Right: Editorial Text */}
           <div className="lg:col-span-5 lg:pl-16 xl:pl-24 flex flex-col justify-center mt-12 lg:mt-0">
@@ -49,12 +49,12 @@ export default function CaseStudy() {
                 Featured Case Study
               </span>
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#33241F] tracking-tight leading-[1.1] mb-6">
               SWRV <br />
               <span className="font-serif italic text-[#8A5A3B] font-normal">Attire.</span>
             </h2>
-            
+
             <p className="text-lg text-[#5A4A45] font-light leading-relaxed mb-10">
               Built from scratch, with socials fully managed by us. We took SWRV from a concept to a thriving online store, focusing on speed, aesthetic, and conversion.
             </p>
@@ -67,7 +67,6 @@ export default function CaseStudy() {
               <span className="w-10 h-px bg-[#33241F] group-hover:bg-[#8A5A3B] group-hover:w-16 transition-all duration-300"></span>
             </a>
           </div>
-
         </div>
       </div>
     </section>
