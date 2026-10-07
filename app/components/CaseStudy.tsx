@@ -30,17 +30,16 @@ export default function CaseStudy() {
             </div>
 
             {/* Floating Stat Card */}
-            <div className="absolute -bottom-8 right-8 md:right-16 bg-[#FFF5E8]/95 backdrop-blur-md p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(138,90,59,0.3)] border border-[#D9B48F]/50 z-20">
-              <div className="flex flex-col gap-4">
-                {results.map((r, i) => (
-                  <div key={i} className="flex items-center justify-between gap-8 border-b border-[#D9B48F]/30 pb-3 last:border-0 last:pb-0">
-                    <span className="text-xs font-bold text-[#8A5A3B] uppercase tracking-wider">{r.label}</span>
-                    <span className="text-lg font-bold text-[#33241F]">{r.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+<div className="relative mt-4 mx-2 md:mt-0 md:mx-0 md:absolute md:-bottom-8 md:right-16 bg-[#FFF5E8]/95 backdrop-blur-md p-5 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(138,90,59,0.3)] border border-[#D9B48F]/50 z-20">
+  <div className="flex flex-col gap-4">
+    {results.map((r, i) => (
+      <div key={i} className="flex items-center justify-between gap-8 border-b border-[#D9B48F]/30 pb-3 last:border-0 last:pb-0">
+        <span className="text-xs font-bold text-[#8A5A3B] uppercase tracking-wider">{r.label}</span>
+        <span className="text-lg font-bold text-[#33241F]">{r.value}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
           {/* Right: Editorial Text */}
           <div className="lg:col-span-5 lg:pl-16 xl:pl-24 flex flex-col justify-center mt-12 lg:mt-0">
