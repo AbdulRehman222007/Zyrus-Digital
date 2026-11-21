@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Zyrus Digital: design tokens
+   Single source for color, type, space, radius, motion. Light is the default.
+   Dark follows the system setting unless the visitor chooses otherwise via
+   <html data-theme="light|dark">.
+   ========================================================================== */
+
+:root {
+  /* ---------- Color: light (default) ---------- */
+  --color-paper: oklch(96% 0.008 85);
+  --color-paper-raised: oklch(98.5% 0.005 85);
+  --color-ink: oklch(21% 0.012 260);
+  --color-ink-soft: oklch(38% 0.012 260);
+  --color-mute: oklch(50% 0.012 260);
+  --color-rule: oklch(84% 0.01 85);
+  --color-rule-strong: oklch(70% 0.012 85);
+  --color-accent: oklch(58% 0.17 36);
+  --color-accent-ink: oklch(98% 0.005 85);
+  --color-inverse-bg: oklch(21% 0.012 260);
+  --color-inverse-ink: oklch(96% 0.008 85);
+
+  /* ---------- Type families ---------- */
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* ---------- Type scale (fluid, 1.25 ratio at mobile to 1.5 at desktop) ---------- */
+  --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --text-sm: clamp(0.88rem, 0.85rem + 0.15vw, 0.95rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-md: clamp(1.15rem, 1.08rem + 0.35vw, 1.35rem);
+  --text-lg: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem);
+  --text-xl: clamp(1.9rem, 1.5rem + 1.8vw, 2.75rem);
+  --text-2xl: clamp(2.5rem, 1.8rem + 3vw, 4.25rem);
+  --text-3xl: clamp(3.25rem, 2rem + 5.2vw, 7.5rem);
+
+  --leading-tight: 0.96;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+
+  /* Body is always 0 tracking. Display tracking is set per size, not blanket. */
+  --tracking-body: 0;
+  --tracking-display-xl: -0.035em;
+  --tracking-display-lg: -0.025em;
+  --tracking-display-md: -0.01em;
+  --tracking-label: 0.16em;
+
+  /* Weights: body 400, headlines 700 to 760 so the hierarchy has real contrast */
+  --weight-body: 400;
+  --weight-body-strong: 600;
+  --weight-display: 760;
+  --weight-display-sub: 700;
+
+  /* ---------- Space (4px base) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Page gutters and section rhythm */
+  --gutter: clamp(1.25rem, 0.8rem + 2vw, 5rem);
+  --section-y: clamp(5rem, 3.5rem + 6vw, 10rem);
+  --measure: 36rem;
+  --max-width: 90rem;
+
+  /* ---------- Radius and elevation (used sparingly) ---------- */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --shadow-soft: 0 24px 48px -28px oklch(21% 0.012 260 / 0.35);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+  --dur-fast: 300ms;
+  --dur-base: 700ms;
+  --dur-slow: 1100ms;
+  --dur-hero: 1400ms;
+
+  /* Stagger between lines or items in one reveal sequence */
+  --stagger-tight: 60ms;
+  --stagger-base: 110ms;
+
+  /* Lenis smoothing; the GSAP ticker drives it */
+  --scroll-duration: 1.15;
+
+  /* ---------- Grain (tactile warmth; replaced with none under reduced motion) ---------- */
+  --grain-opacity: 0.06;
+
+  color-scheme: light;
+}
+
+/* ---------- Color: dark (system default) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: oklch(17% 0.01 260);
+    --color-paper-raised: oklch(21% 0.012 260);
+    --color-ink: oklch(94% 0.008 85);
+    --color-ink-soft: oklch(80% 0.01 85);
+    --color-mute: oklch(66% 0.012 85);
+    --color-rule: oklch(32% 0.012 260);
+    --color-rule-strong: oklch(44% 0.012 260);
+    --color-accent: oklch(72% 0.14 40);
+    --color-accent-ink: oklch(17% 0.01 260);
+    --color-inverse-bg: oklch(94% 0.008 85);
+    --color-inverse-ink: oklch(17% 0.01 260);
+    --shadow-soft: 0 24px 48px -28px oklch(0% 0 0 / 0.6);
+    --grain-opacity: 0.08;
+    color-scheme: dark;
+  }
+}
+
+/* ---------- Color: explicit manual override ---------- */
+:root[data-theme="dark"] {
+  --color-paper: oklch(17% 0.01 260);
+  --color-paper-raised: oklch(21% 0.012 260);
+  --color-ink: oklch(94% 0.008 85);
+  --color-ink-soft: oklch(80% 0.01 85);
+  --color-mute: oklch(66% 0.012 85);
+  --color-rule: oklch(32% 0.012 260);
+  --color-rule-strong: oklch(44% 0.012 260);
+  --color-accent: oklch(72% 0.14 40);
+  --color-accent-ink: oklch(17% 0.01 260);
+  --color-inverse-bg: oklch(94% 0.008 85);
+  --color-inverse-ink: oklch(17% 0.01 260);
+  --shadow-soft: 0 24px 48px -28px oklch(0% 0 0 / 0.6);
+  --grain-opacity: 0.08;
+  color-scheme: dark;
+}
+
+/* ---------- Base usage ---------- */
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Reduced motion: keep layout and content, remove movement ---------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+    --dur-hero: 0ms;
+    --grain-opacity: 0;
+    --scroll-duration: 0;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
