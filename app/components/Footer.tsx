@@ -1,124 +1,98 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 
-const icon = "w-4 h-4 shrink-0";
-const svgProps = {
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 2,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-  viewBox: "0 0 24 24",
-  className: icon,
-};
-
-const MailIcon = () => (
-  <svg {...svgProps}>
-    <rect width="20" height="16" x="2" y="4" rx="2" />
-    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-  </svg>
-);
-const LinkedInIcon = () => (
-  <svg {...svgProps}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
-const InstagramIcon = () => (
-  <svg {...svgProps}>
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-);
-const ChatIcon = () => (
-  <svg {...svgProps}>
-    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-  </svg>
-);
-const ArrowIcon = () => (
-  <svg {...svgProps}>
-    <path d="M5 12h14M12 5l7 7-7 7" />
-  </svg>
-);
-
-type FooterLink = { label: string; href: string; external?: boolean; icon?: ReactNode };
-
-const columns: { title: string; links: FooterLink[] }[] = [
+const columns = [
   {
     title: "Services",
     links: [
       { label: "Shopify development", href: "/services/build" },
       { label: "WooCommerce development", href: "/services/build" },
-      { label: "SEO & speed", href: "/services/launch" },
+      { label: "SEO and speed", href: "/services/launch" },
       { label: "Social media", href: "/services/grow" },
     ],
   },
   {
-    title: "Portfolio",
+    title: "Work",
     links: [
       { label: "Case studies", href: "/portfolio" },
-      { label: "Portfolio", href: "/portfolio" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About us", href: "/#about" },
+      { label: "About", href: "/about" },
       { label: "Process", href: "/#process" },
       { label: "Contact", href: "/contact" },
     ],
   },
-  {
-    title: "Contact & socials",
-    links: [
-      { label: "WhatsApp", href: "https://wa.me/92XXXXXXXXXX", external: true, icon: <ChatIcon /> },
-      { label: "Email us", href: "mailto:zyrusdigital@gmail.com", external: true, icon: <MailIcon /> },
-      { label: "LinkedIn", href: "https://www.linkedin.com/company/YOUR-PAGE", external: true, icon: <LinkedInIcon /> },
-      { label: "Instagram", href: "https://www.instagram.com/YOUR-HANDLE", external: true, icon: <InstagramIcon /> },
-    ],
-  },
+];
+
+// TODO before launch: replace the placeholder values with real accounts.
+// Remove any entry you don't use, so no placeholder reaches the live site.
+const socials = [
+  { label: "Email", href: "mailto:zyrusdigital@gmail.com" },
+  { label: "WhatsApp", href: "https://wa.me/92XXXXXXXXXX" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/YOUR-PAGE" },
+  { label: "Instagram", href: "https://www.instagram.com/YOUR-HANDLE" },
 ];
 
 const linkClass =
-  "inline-flex items-center gap-2 text-sm text-[#D9B48F] hover:text-[#FFF5E8] transition-colors";
+  "text-[var(--color-paper)]/80 transition-colors duration-300 hover:text-[var(--color-accent)]";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#33241F] text-[#EAD8C0] pt-16 pb-8 border-t border-[#D9B48F]/20">
-      <div className="max-w-6xl mx-auto px-5">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="font-bold text-[#FFF5E8] mb-3">{col.title}</h4>
-              <ul className="space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {link.icon}
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link href={link.href} className={linkClass}>
-                        {link.icon}
-                        {link.label}
+    <footer className="bg-[var(--color-inverse-bg)] px-[var(--gutter)] pb-10 pt-24 text-[var(--color-inverse-ink)]">
+      <div className="mx-auto max-w-[90rem]">
+        <div className="grid gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="[font-family:var(--font-display)] [font-size:var(--text-xl)] [font-weight:var(--weight-display)] leading-[0.96] tracking-[var(--tracking-display-lg)]">
+              Have a store to build or fix?
+            </p>
+            <Link
+              href="/contact"
+              className="mt-10 inline-flex items-center gap-3 bg-[var(--color-inverse-ink)] px-8 py-4 font-semibold text-[var(--color-inverse-bg)] transition-colors duration-300 hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-ink)]"
+            >
+              Get your free store review <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-10 lg:col-span-4 lg:col-start-7">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h3 className="mb-5 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+                  {col.title}
+                </h3>
+                <ul className="space-y-3">
+                  {col.links.map((l) => (
+                    <li key={l.label}>
+                      <Link href={l.href} className={linkClass}>
+                        {l.label}
                       </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+
+          <div className="lg:col-span-3">
+            <h3 className="mb-5 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+              Contact
+            </h3>
+            <ul className="space-y-3">
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="text-xs text-[#D9B48F]/70 border-t border-[#D9B48F]/20 pt-6">
-          © 2026 Zyrus Digital. All rights reserved.
+
+        <div className="mt-24 flex flex-col gap-4 border-t border-[var(--color-paper)]/15 pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-paper)]/60 md:flex-row md:justify-between">
+          <span>© 2026 Zyrus Digital. Karachi.</span>
+          <span>Shopify, WooCommerce, performance, growth</span>
         </div>
       </div>
     </footer>
