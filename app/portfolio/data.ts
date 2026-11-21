@@ -178,16 +178,6 @@ export const projects: Project[] = [
       stack: ["Custom code", "Responsive design"],
     },
   },
-  {
-    slug: "zohaibtex",
-    client: "Zohaibtex",
-    industry: "Textiles / B2B",
-    tags: ["Shopify"],
-    image: "/assets/work/zilpk-desktop.png",
-    imageMobile: "/assets/work/zilpk-mobile.png",
-    soon: true,
-    // No caseStudy yet: add it on launch day and the page generates itself.
-  },
 ];
 
 export const filters = [
