@@ -1,112 +1,90 @@
 import Link from "next/link";
 
-export default function WhatYouGet() {
-  const services = [
-    {
-      id: "01",
-      title: "Build",
-      description: "The foundation of your store.",
-      href: "/services/build",
-      items: [
-        "Shopify & WooCommerce development",
-        "Custom theme design",
-        "Speed & performance optimization"
-      ]
-    },
-    {
-      id: "02",
-      title: "Launch",
-      description: "Ready for the world.",
-      href: "/services/launch",
-      items: [
-        "Payment gateway integration",
-        "Technical SEO setup",
-        "Analytics & tracking configuration"
-      ]
-    },
-    {
-      id: "03",
-      title: "Grow",
-      description: "Scaling your revenue.",
-      href: "/services/grow",
-      items: [
-        "Social media management",
-        "Paid advertising campaigns",
-        "Email marketing automation"
-      ]
-    }
-  ];
+const services = [
+  {
+    id: "01",
+    title: "Build",
+    outcome: "A store built around your catalog, not a theme you have to fight.",
+    href: "/services/build",
+    items: [
+      "Shopify and WooCommerce development",
+      "Custom theme design",
+      "Speed and performance optimization",
+    ],
+  },
+  {
+    id: "02",
+    title: "Launch",
+    outcome: "Ready to sell on day one, with the technical foundations already tested.",
+    href: "/services/launch",
+    items: [
+      "Payment gateway integration",
+      "Technical SEO setup",
+      "Analytics and tracking configuration",
+    ],
+  },
+  {
+    id: "03",
+    title: "Grow",
+    outcome: "More traffic and repeat orders, measured against revenue.",
+    href: "/services/grow",
+    items: [
+      "Social media management",
+      "Paid advertising campaigns",
+      "Email marketing automation",
+    ],
+  },
+];
 
+export default function Offer() {
   return (
-    <section className="relative py-24 md:py-32 bg-[#EAD8C0] overflow-hidden">
-      
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#8A5A3B]/20 to-transparent"></div>
+    <section className="bg-[var(--color-paper)] px-[var(--gutter)] py-[var(--section-y)] text-[var(--color-ink)]">
+      <div className="mx-auto max-w-[90rem]">
+        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+          Services
+        </p>
+        <h2 className="mt-6 max-w-3xl [font-family:var(--font-display)] [font-size:var(--text-2xl)] [font-weight:var(--weight-display)] leading-[0.96] tracking-[var(--tracking-display-lg)]">
+          Three stages, in the order your store needs them.
+        </h2>
 
-      <div className="max-w-[1400px] mx-auto px-5 lg:px-10 relative z-10">
-        
-        <div className="mb-16 md:mb-24">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-8 h-px bg-[#8A5A3B]"></span>
-            <span className="text-xs font-bold tracking-[0.2em] text-[#8A5A3B] uppercase">
-              Our Services
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-[#33241F] tracking-tight max-w-2xl">
-            What you get when you partner with us.
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="group relative bg-[#FFF5E8] p-8 md:p-10 rounded-[2rem] border border-[#D9B48F]/60 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(138,90,59,0.15)] hover:-translate-y-2 hover:border-[#8A5A3B]/40 overflow-hidden"
+        <ol className="mt-20">
+          {services.map((s) => (
+            <li
+              key={s.id}
+              className="grid gap-8 border-t border-[var(--color-rule)] py-16 lg:grid-cols-12 lg:gap-10 lg:py-24"
             >
-              
-              <div className="absolute top-6 right-8 text-7xl font-black text-[#EAD8C0] opacity-60 group-hover:opacity-100 group-hover:text-[#8A5A3B]/10 transition-all duration-500 pointer-events-none select-none">
-                {service.id}
-              </div>
+              <span className="[font-family:var(--font-display)] [font-size:var(--text-3xl)] [font-weight:var(--weight-display)] leading-none text-[var(--color-accent)] lg:col-span-2">
+                {s.id}
+              </span>
 
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold text-[#33241F] mb-2 group-hover:text-[#8A5A3B] transition-colors duration-300">
-                  {service.title}
+              <div className="lg:col-span-5">
+                <h3 className="[font-family:var(--font-display)] [font-size:var(--text-xl)] [font-weight:var(--weight-display)] leading-none tracking-[var(--tracking-display-lg)]">
+                  {s.title}
                 </h3>
-                <p className="text-sm font-medium text-[#8A5A3B] mb-8 tracking-wide uppercase">
-                  {service.description}
+                <p className="mt-6 max-w-md text-[length:var(--text-md)] leading-[1.5] text-[var(--color-ink-soft)]">
+                  {s.outcome}
                 </p>
-
-                <ul className="space-y-5">
-                  {service.items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-[#33241F]/70">
-                      <div className="mt-1 w-5 h-5 rounded-full bg-[#8A5A3B]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#8A5A3B] transition-colors duration-300">
-                        <svg 
-                          className="w-3 h-3 text-[#8A5A3B] group-hover:text-[#FFF5E8] transition-colors duration-300" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                      <span className="text-[15px] leading-relaxed font-medium">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-10 pt-6 border-t border-[#D9B48F]/40 md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-500">
-                  <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-bold text-[#8A5A3B] hover:text-[#33241F] transition-colors">
-                    Explore {service.title}
-                    <span>→</span>
-                  </Link>
-                </div>
+                <Link
+                  href={s.href}
+                  className="mt-8 inline-flex items-center gap-2 border-b border-[var(--color-ink)] pb-1 font-semibold transition-colors duration-300 hover:text-[var(--color-accent)]"
+                >
+                  Explore {s.title} <span aria-hidden="true">→</span>
+                </Link>
               </div>
 
-            </div>
+              <ul className="lg:col-span-5 lg:self-end">
+                {s.items.map((item) => (
+                  <li
+                    key={item}
+                    className="border-b border-[var(--color-rule)] py-4 text-[length:var(--text-base)] text-[var(--color-ink-soft)]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </li>
           ))}
-        </div>
-
+        </ol>
       </div>
     </section>
   );
