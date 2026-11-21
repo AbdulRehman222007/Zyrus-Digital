@@ -9,7 +9,7 @@ export type CaseStudy = {
   brief: string;
   challenge: string;
   built: { title: string; body: string }[];
-  // Only add results you can prove (source + date). Omit the field otherwise.
+  // Only add results you can prove (source and date). Omit the field otherwise.
   results?: { label: string; before?: string; after: string }[];
   stack: string[];
   quote?: { text: string; name: string; role: string };
@@ -43,33 +43,33 @@ export const projects: Project[] = [
       summary:
         "Built from scratch by Zyrus, with performance work and social media managed alongside it.",
       services: ["Web development", "Performance", "Social media"],
-      platform: "WordPress + Elementor",
-      year: "2025 – present",
+      platform: "WordPress and Elementor",
+      year: "2025 to present",
       snapshot: [
         { label: "Built", value: "From scratch" },
-        { label: "Drops supported", value: "3" },
         { label: "Socials", value: "Managed by Zyrus" },
+        { label: "SEO", value: "100" },
       ],
       brief:
         "SWRV is a Karachi unisex streetwear brand. It needed a store that felt as considered as the product and could keep up with a new drop every season.",
       challenge:
-        "Streetwear lives and dies on its drops. The site had to look premium, stay fast under launch traffic, and handle video-heavy hero sections without the layout jumping or the page crawling on mobile.",
+        "Streetwear lives and dies on its drops. The site had to look premium, stay fast under launch traffic, and handle video heavy hero sections without the layout jumping or the page crawling on mobile.",
       built: [
         {
           title: "A custom storefront",
-          body: "Brand-led design with category browsing for hoodies, jerseys, tees, co-ords and sweatshirts, so each new drop slots in without a redesign.",
+          body: "Brand led design with category browsing for hoodies, jerseys, tees, coordinated sets and sweatshirts, so each new drop slots in without a redesign.",
         },
         {
           title: "A performance layer",
           body: "Preloaded hero assets with separate desktop and mobile logic for the video background, tuned caching, and no external font loading to protect load time.",
         },
         {
-          title: "Detail-level fixes",
+          title: "Detailed fixes",
           body: "A resolved CSS conflict from a global heading rule, a mobile footer accordion, and clean SEO setup on key pages.",
         },
         {
           title: "Social media management",
-          body: "Content aligned to each drop and run alongside the site, so the story is consistent from Instagram to checkout.",
+          body: "Content aligned to each drop and run alongside the site, so the story stays consistent from Instagram to checkout.",
         },
       ],
       results: [
@@ -93,13 +93,13 @@ export const projects: Project[] = [
       headline:
         "A footwear retailer with four Karachi stores and no website, launched on Shopify with conversion features built in custom Liquid instead of stacked apps.",
       summary:
-        "Countdown timers, five custom emails, colour swatches, a store locator and a 17track-powered order tracking page, all built in custom Liquid rather than stacked apps.",
+        "Countdown timers, five custom emails, colour swatches, a store locator and an order tracking page powered by 17track, all built in custom Liquid rather than stacked apps.",
       services: ["Shopify development", "Custom features", "Payments"],
       platform: "Shopify",
       year: "2026",
       snapshot: [
         { label: "Custom features", value: "10+" },
-        { label: "Built in", value: "Liquid + JS" },
+        { label: "Built in", value: "Liquid and JavaScript" },
         { label: "Local payments", value: "Integrated" },
       ],
       brief:
@@ -113,7 +113,7 @@ export const projects: Project[] = [
         },
         {
           title: "Smarter product selection",
-          body: "A linked-product colour swatch system and size swatches so shoppers switch colourways without leaving the page, plus custom SKU formatting for cleaner inventory.",
+          body: "A linked product colour swatch system and size swatches, so shoppers switch colourways without leaving the page, plus custom SKU formatting for cleaner inventory.",
         },
         {
           title: "Five custom emails",
@@ -121,13 +121,12 @@ export const projects: Project[] = [
         },
         {
           title: "A custom order tracking page",
-          body: "A hand built tracking form that hands off to 17track's lookup API and renders live delivery status on the page. No tracking app, no redirect. Includes Enter key submit, empty input handling, and an on page note explaining the 24 to 48 hour courier delay.",
+          body: "A handbuilt tracking form that hands off to 17track's lookup API and renders live delivery status on the page. No tracking app, no redirect. It includes Enter key submit, empty input handling, and an on page note explaining the courier delay of 24 to 48 hours.",
         },
         {
           title: "A custom store locator",
-          body: "Four Karachi stores, N. Nazimabad, Saddar, Saddar Mega Store and Gulshan. Each one with address, two phone numbers and a Google Maps deep link. Built as a single page rather than a store locator app.",
+          body: "Four Karachi stores in N. Nazimabad, Saddar, Saddar Mega Store and Gulshan. Each has an address, two phone numbers and a Google Maps link. Built as a single page rather than a store locator app.",
         },
-
       ],
       stack: ["Shopify", "Liquid", "JavaScript", "Rapid Gateway"],
     },
@@ -136,7 +135,7 @@ export const projects: Project[] = [
     slug: "convex-consulting",
     client: "Convex Consulting",
     industry: "B2B Services",
-    tags: ["Custom Code"],
+    tags: ["Custom Code", "Social Media"],
     image: "/assets/work/convexconsulting-desktop.png",
     imageMobile: "/assets/work/convexconsulting-mobile.png",
     href: "https://convexconsulting.com.pk",
@@ -156,15 +155,15 @@ export const projects: Project[] = [
       brief:
         "Convex Consulting started in Oracle database and infrastructure work and has grown into web, software, mobile, automation and AI. Their website had to present them as a serious enterprise IT partner.",
       challenge:
-        "Their strongest asset is a long list of delivered projects, but the original site didn't make that proof easy to scan. Our first redesign was visually ambitious, and the client found it too complex for a B2B audience.",
+        "Their strongest asset is a long list of delivered projects, but the original site did not make that proof easy to scan. Our first redesign was visually ambitious, and the client found it too complex for a B2B audience.",
       built: [
         {
-          title: "A cleaner enterprise-style homepage",
-          body: "Aimed at decision-makers who want credibility fast.",
+          title: "A cleaner enterprise homepage",
+          body: "Aimed at decision makers who want credibility fast.",
         },
         {
           title: "A case studies page rebuilt around feedback",
-          body: "We moved from an editorial layout to a uniform card grid, then to a screenshot-first portfolio, with full challenge, solution and outcome revealed on click so skimmers and detail-readers are both served.",
+          body: "We moved from an editorial layout to a uniform card grid, then to a screenshot led portfolio, with full challenge, solution and outcome revealed on click so skimmers and detail readers are both served.",
         },
         {
           title: "A dedicated FBR digital invoicing page",
@@ -172,7 +171,7 @@ export const projects: Project[] = [
         },
         {
           title: "Contact and client list pages",
-          body: "They complete the trust-building path from first visit to enquiry.",
+          body: "They complete the trust building path from first visit to enquiry.",
         },
       ],
       stack: ["Custom code", "Responsive design"],
