@@ -31,15 +31,6 @@ const projects: Project[] = [
     url: "https://championshoes.pk",
     domain: "championshoes.pk",
   },
-  {
-    name: "Zohaibtex",
-    tags: ["Launching soon"],
-    img: "zilpk-desktop.png",
-    imgMobile: "zilpk-mobile.png",
-    soon: true,
-    url: "#",
-    domain: "zilpk.com",
-  },
 ];
 
 export default function MoreWork() {
@@ -55,7 +46,7 @@ export default function MoreWork() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((p) => (
             <a
               key={p.name}
