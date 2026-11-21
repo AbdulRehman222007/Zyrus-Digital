@@ -20,9 +20,9 @@
   --color-inverse-ink: oklch(96% 0.008 85);
 
   /* ---------- Type families ---------- */
-  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
-  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-source-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Menlo, Consolas, monospace;
 
   /* ---------- Type scale (fluid, 1.25 ratio at mobile to 1.5 at desktop) ---------- */
   --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
