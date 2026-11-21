@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const columns = [
@@ -31,6 +33,11 @@ const link =
   "text-[var(--color-ink-soft)] transition-colors duration-300 hover:text-[var(--color-accent)]";
 
 export default function Footer() {
+  const toTop = () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  };
+
   return (
     <footer className="border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-[var(--gutter)] pb-10 pt-20 text-[var(--color-ink)]">
       <div className="mx-auto max-w-[90rem]">
@@ -64,9 +71,15 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-24 flex flex-col gap-4 border-t border-[var(--color-rule)] pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-mute)] md:flex-row md:justify-between">
-          <span>© 2026 Zyrus Digital. Pakistan.</span>
-          <span>Shopify, WooCommerce, performance, growth</span>
+        <div className="mt-24 flex flex-col gap-6 border-t border-[var(--color-rule)] pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-mute)] md:flex-row md:items-center md:justify-between">
+          <span>© 2026 Zyrus Digital. Karachi.</span>
+          <button
+            type="button"
+            onClick={toTop}
+            className="inline-flex items-center gap-3 self-start transition-colors duration-300 hover:text-[var(--color-accent)] md:self-auto"
+          >
+            Back to top <span aria-hidden="true">↑</span>
+          </button>
         </div>
       </div>
     </footer>
