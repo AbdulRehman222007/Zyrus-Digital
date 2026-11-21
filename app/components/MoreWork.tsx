@@ -26,18 +26,20 @@ export default function MoreWork() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
-  // Light up the dot for whichever card sits closest to the centre of the track.
+  // Light up the dot for the card closest to the centre of the track.
+  // Both sides are measured on screen, so the result doesn't depend on page offsets.
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     const update = () => {
-      const center = track.scrollLeft + track.clientWidth / 2;
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
       let closest = 0;
       let best = Infinity;
       Array.from(track.children).forEach((node, i) => {
-        const el = node as HTMLElement;
-        const d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+        const r = (node as HTMLElement).getBoundingClientRect();
+        const d = Math.abs(r.left + r.width / 2 - center);
         if (d < best) {
           best = d;
           closest = i;
@@ -59,15 +61,13 @@ export default function MoreWork() {
     const track = trackRef.current;
     const el = track?.children[i] as HTMLElement | undefined;
     if (!track || !el) return;
+    const trackRect = track.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const offset = elRect.left - trackRect.left + track.scrollLeft;
     track.scrollTo({
-      left: el.offsetLeft - (track.clientWidth - el.offsetWidth) / 2,
+      left: offset - (track.clientWidth - el.offsetWidth) / 2,
       behavior: "smooth",
     });
-  };
-
-  const toTop = () => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
   };
 
   return (
@@ -142,32 +142,23 @@ export default function MoreWork() {
         ))}
       </div>
 
-      {/* Mobile controls: progress dots and a way back to the top. */}
-      <div className="mt-10 flex items-center justify-between px-[var(--gutter)] md:hidden">
-        <div className="flex">
-          {projects.map((p, i) => (
-            <button
-              key={p.name}
-              type="button"
-              onClick={() => goTo(i)}
-              aria-label={`Show ${p.name}`}
-              className="flex items-center py-2 pr-2"
-            >
-              <span
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  active === i ? "w-8 bg-[var(--color-accent)]" : "w-2 bg-[var(--color-rule-strong)]"
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={toTop}
-          className="border-b border-current pb-1 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] transition-colors hover:text-[var(--color-accent)]"
-        >
-          Back to top ↑
-        </button>
+      {/* Mobile only: progress dots. */}
+      <div className="mt-10 flex justify-center px-[var(--gutter)] md:hidden">
+        {projects.map((p, i) => (
+          <button
+            key={p.name}
+            type="button"
+            onClick={() => goTo(i)}
+            aria-label={`Show ${p.name}`}
+            className="flex items-center py-2 pr-2"
+          >
+            <span
+              className={`h-2 rounded-full transition-all duration-500 ${
+                active === i ? "w-8 bg-[var(--color-accent)]" : "w-2 bg-[var(--color-rule-strong)]"
+              }`}
+            />
+          </button>
+        ))}
       </div>
     </section>
   );
