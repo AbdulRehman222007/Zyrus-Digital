@@ -27,7 +27,7 @@ const socials = [
   { label: "Email", href: "mailto:zyrusdigital@gmail.com" },
   { label: "WhatsApp", href: "https://wa.me/92XXXXXXXXXX" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/YOUR-PAGE" },
-  { label: "Instagram", href: "https://www.instagram.com/YOUR-HANDLE" },
+  { label: "Instagram", href: "https://www.instagram.com/zyrusdigital.co/" },
 ];
 
 const linkClass =
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-24 flex flex-col gap-4 border-t border-[var(--color-paper)]/15 pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-paper)]/60 md:flex-row md:justify-between">
-          <span>© 2026 Zyrus Digital. Karachi.</span>
+          <span>© 2026 Zyrus Digital. Pakistan.</span>
           <span>Shopify, WooCommerce, performance, growth</span>
         </div>
       </div>
