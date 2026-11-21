@@ -21,7 +21,7 @@ function Form({ motion, reduced }: { motion: { current: Motion }; reduced: boole
   const [color, setColor] = useState("#a5582f");
 
   const { geometry, base, raw } = useMemo(() => {
-    const geo = new THREE.IcosahedronGeometry(1.4, 4);
+    const geo = new THREE.IcosahedronGeometry(1.0, 2);
     const pos = geo.attributes.position.array as Float32Array;
     const rough = new Float32Array(pos.length);
     for (let i = 0; i < pos.length; i += 3) {
@@ -73,7 +73,7 @@ function Form({ motion, reduced }: { motion: { current: Motion }; reduced: boole
 
   return (
     <mesh ref={meshRef} geometry={geometry}>
-      <meshBasicMaterial color={color} wireframe />
+      <meshBasicMaterial color={color} wireframe transparent opacity={0.55} />
     </mesh>
   );
 }
@@ -122,7 +122,7 @@ export default function HeroObject() {
       <Canvas
         frameloop={reduced ? "demand" : "always"}
         dpr={[1, 1.75]}
-        camera={{ position: [0, 0, 4.2], fov: 40 }}
+        camera={{ position: [0, 0, 5.5], fov: 35 }}
         gl={{ antialias: true, alpha: true }}
       >
         <Form motion={motion} reduced={reduced} />
