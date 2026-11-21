@@ -1,24 +1,28 @@
-// app/components/SmoothScroll.tsx
 "use client";
 
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
+
+  // Start Lenis once, unless the visitor has reduced motion turned on.
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let lenis: Lenis | null = null;
     let frame = 0;
 
     const start = () => {
-      if (lenis) return;
-      lenis = new Lenis({
+      if (lenisRef.current) return;
+      const lenis = new Lenis({
         duration: 1.15,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
       });
+      lenisRef.current = lenis;
       const raf = (time: number) => {
-        lenis?.raf(time);
+        lenis.raf(time);
         frame = requestAnimationFrame(raf);
       };
       frame = requestAnimationFrame(raf);
@@ -26,8 +30,8 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
 
     const stop = () => {
       cancelAnimationFrame(frame);
-      lenis?.destroy();
-      lenis = null;
+      lenisRef.current?.destroy();
+      lenisRef.current = null;
     };
 
     const sync = () => (query.matches ? stop() : start());
@@ -39,6 +43,14 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       stop();
     };
   }, []);
+
+  // Recalculate the scroll length after each page change, once the new page has rendered.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      lenisRef.current?.resize();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [pathname]);
 
   return <>{children}</>;
 }
