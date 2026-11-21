@@ -8,7 +8,7 @@ const clients = [
 
 export default function Proof() {
   return (
-    <section className="bg-[var(--color-paper)] py-24">
+    <section className="bg-[oklch(96%_0.008_85)] py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-16 text-center">
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] md:text-base">
