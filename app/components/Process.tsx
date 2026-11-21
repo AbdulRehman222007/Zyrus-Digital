@@ -9,6 +9,9 @@ const steps = [
   { n: "04", title: "Launch and grow", text: "Go live, SEO, and marketing handoff." },
 ];
 
+const FILL_MS = 1600;
+const STAGGER_MS = 350;
+
 export default function Process() {
   const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [reached, setReached] = useState<boolean[]>(steps.map(() => false));
@@ -75,8 +78,11 @@ export default function Process() {
           {/* Filled progress line, desktop only */}
           <span
             aria-hidden="true"
-            className="absolute left-0 top-[7px] hidden h-[2px] bg-[var(--color-accent)] transition-[width] duration-700 ease-[var(--ease-out)] md:block"
-            style={{ width: `${fill}%` }}
+            className="absolute left-0 top-[7px] hidden h-[2px] bg-[var(--color-accent)] ease-[var(--ease-out)] md:block"
+            style={{
+              width: `${fill}%`,
+              transition: `width ${FILL_MS}ms var(--ease-out)`,
+            }}
           />
 
           {steps.map((s, i) => (
@@ -89,16 +95,22 @@ export default function Process() {
             >
               <span
                 aria-hidden="true"
-                className={`absolute left-0 top-0 h-[15px] w-[15px] rounded-full border-2 border-[var(--color-accent)] transition-all duration-700 ease-[var(--ease-out)] ${
+                className={`absolute left-0 top-0 h-[15px] w-[15px] rounded-full border-2 border-[var(--color-accent)] ${
                   reached[i]
                     ? "scale-110 bg-[var(--color-accent)] shadow-[0_0_0_6px_oklch(58%_0.17_36/0.15)]"
                     : "bg-[var(--color-paper)]"
                 }`}
+                style={{
+                  transition: `all ${FILL_MS}ms var(--ease-out) ${reached[i] ? i * STAGGER_MS : 0}ms`,
+                }}
               />
               <p
-                className={`font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] tracking-[var(--tracking-label)] transition-colors duration-700 ${
+                className={`font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] tracking-[var(--tracking-label)] ${
                   reached[i] ? "text-[var(--color-accent)]" : "text-[var(--color-mute)]"
                 }`}
+                style={{
+                  transition: `color ${FILL_MS}ms var(--ease-out) ${reached[i] ? i * STAGGER_MS : 0}ms`,
+                }}
               >
                 {s.n}
               </p>
