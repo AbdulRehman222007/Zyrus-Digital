@@ -1,13 +1,20 @@
+"use client";
+
 import Link from "next/link";
 
 export default function FinalCta() {
+  const toTop = () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  };
+
   return (
     <section
       id="contact"
       className="scroll-mt-20 bg-[var(--color-inverse-bg)] px-[var(--gutter)] py-[var(--section-y)] text-[var(--color-inverse-ink)]"
     >
       <div className="mx-auto max-w-[90rem]">
-        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-s)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
           Free store review
         </p>
 
@@ -28,6 +35,16 @@ export default function FinalCta() {
           >
             zyrusdigital@gmail.com
           </a>
+        </div>
+
+        <div className="mt-24 flex justify-end border-t border-current/20 pt-8">
+          <button
+            type="button"
+            onClick={toTop}
+            className="inline-flex items-center gap-3 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] transition-colors duration-300 hover:text-[var(--color-accent)]"
+          >
+            Back to top <span aria-hidden="true">↑</span>
+          </button>
         </div>
       </div>
     </section>
