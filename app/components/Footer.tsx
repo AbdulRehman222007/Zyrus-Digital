@@ -19,79 +19,53 @@ const columns = [
       { label: "Contact", href: "/contact" },
     ],
   },
+  {
+    title: "Contact",
+    links: [{ label: "zyrusdigital@gmail.com", href: "mailto:zyrusdigital@gmail.com" }],
+  },
 ];
 
-// TODO before launch: replace the placeholder values with real accounts.
-// Remove any entry you don't use, so no placeholder reaches the live site.
-const socials = [
-  { label: "Email", href: "mailto:zyrusdigital@gmail.com" },
-  { label: "WhatsApp", href: "https://wa.me/92XXXXXXXXXX" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/YOUR-PAGE" },
-  { label: "Instagram", href: "https://www.instagram.com/zyrusdigital.co/" },
-];
-
-const linkClass =
-  "text-[var(--color-paper)]/80 transition-colors duration-300 hover:text-[var(--color-accent)]";
+const label =
+  "mb-5 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]";
+const link =
+  "text-[var(--color-ink-soft)] transition-colors duration-300 hover:text-[var(--color-accent)]";
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-inverse-bg)] px-[var(--gutter)] pb-10 pt-24 text-[var(--color-inverse-ink)]">
+    <footer className="border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-[var(--gutter)] pb-10 pt-20 text-[var(--color-ink)]">
       <div className="mx-auto max-w-[90rem]">
-        <div className="grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="[font-family:var(--font-display)] [font-size:var(--text-xl)] [font-weight:var(--weight-display)] leading-[0.96] tracking-[var(--tracking-display-lg)]">
-              Have a store to build or fix?
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="[font-family:var(--font-display)] [font-size:var(--text-lg)] [font-weight:var(--weight-display)] leading-none tracking-[var(--tracking-display-lg)]">
+              Zyrus Digital
             </p>
-            <Link
-              href="/contact"
-              className="mt-10 inline-flex items-center gap-3 bg-[var(--color-inverse-ink)] px-8 py-4 font-semibold text-[var(--color-inverse-bg)] transition-colors duration-300 hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-ink)]"
+            <p className="mt-5 max-w-xs text-[length:var(--text-base)] leading-[1.5] text-[var(--color-ink-soft)]">
+              Shopify and WooCommerce engineering from Karachi.
+            </p>
+          </div>
+
+          {columns.map((col, i) => (
+            <nav
+              key={col.title}
+              aria-label={col.title}
+              className={`lg:col-span-2 ${i === 0 ? "lg:col-start-7" : ""}`}
             >
-              Get your free store review <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-10 lg:col-span-4 lg:col-start-7">
-            {columns.map((col) => (
-              <div key={col.title}>
-                <h3 className="mb-5 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
-                  {col.title}
-                </h3>
-                <ul className="space-y-3">
-                  {col.links.map((l) => (
-                    <li key={l.label}>
-                      <Link href={l.href} className={linkClass}>
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
-
-          <div className="lg:col-span-3">
-            <h3 className="mb-5 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
-              Contact
-            </h3>
-            <ul className="space-y-3">
-              {socials.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target={s.href.startsWith("mailto:") ? undefined : "_blank"}
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+              <h3 className={label}>{col.title}</h3>
+              <ul className="space-y-3 text-[length:var(--text-base)]">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className={link}>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
 
-        <div className="mt-24 flex flex-col gap-4 border-t border-[var(--color-paper)]/15 pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-paper)]/60 md:flex-row md:justify-between">
-          <span>© 2026 Zyrus Digital. Pakistan.</span>
+        <div className="mt-24 flex flex-col gap-4 border-t border-[var(--color-rule)] pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-mute)] md:flex-row md:justify-between">
+          <span>© 2026 Zyrus Digital. Karachi.</span>
           <span>Shopify, WooCommerce, performance, growth</span>
         </div>
       </div>
