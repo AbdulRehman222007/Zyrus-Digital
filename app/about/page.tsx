@@ -69,13 +69,13 @@ export default function AboutPage() {
           </div>
           <div className="space-y-6 text-[length:var(--text-md)] leading-[1.5] text-[var(--color-ink-soft)] lg:col-span-7 lg:col-start-6">
             <p>
-              Zyrus Digital is a digital agency based in Karachi. We build Shopify and WooCommerce stores, launch them
+              Zyrus Digital is a digital agency based in Pakistan. We build Shopify and WooCommerce stores, launch them
               properly, and grow them through search, social and paid channels.
             </p>
-            <p>
-              The same team handles the build and the marketing, so nothing is lost between a developer and a marketer.
-              We work with ecommerce brands in Pakistan and beyond, and we build for local markets, local customers and
-              local payment habits from the first day.
+               <p>
+              The same team handles the build and the marketing, so nothing is lost between a developer and a
+              marketer. We build for ecommerce brands that sell across borders, to the standards international clients
+              expect: fast stores, clean code, and clear communication across time zones.
             </p>
           </div>
         </div>
