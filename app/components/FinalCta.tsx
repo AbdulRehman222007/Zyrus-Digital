@@ -1,23 +1,32 @@
 import Link from "next/link";
+
 export default function FinalCta() {
   return (
-    <section id="contact" className="py-20 bg-[#33241F] text-center">
-      <div className="max-w-2xl mx-auto px-5">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#FFF5E8] mb-3">
-          Have a store to build or fix?
-        </h2>
-        <p className="text-[#EAD8C0] mb-8">
-          Get a free, no-obligation review of your current store.
+    <section
+      id="contact"
+      className="scroll-mt-20 bg-[var(--color-inverse-bg)] px-[var(--gutter)] py-[var(--section-y)] text-[var(--color-inverse-ink)]"
+    >
+      <div className="mx-auto max-w-[90rem]">
+        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+          Free store review
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+        <h2 className="mt-8 max-w-4xl [font-family:var(--font-display)] [font-size:var(--text-2xl)] [font-weight:var(--weight-display)] leading-[0.96] tracking-[var(--tracking-display-lg)]">
+          Send us your store. We will tell you what is slowing it down.
+        </h2>
+
+        <div className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-6">
           <Link
-  href="/contact"
-  className="bg-[#FFF5E8] text-[#33241F] font-semibold px-6 py-3.5 rounded-md hover:bg-[#EAD8C0] transition-colors"
->
-  Book a free review
-</Link>
-          <a href="#" className="border border-[#FFF5E8] text-[#FFF5E8] font-semibold px-6 py-3.5 rounded-md hover:bg-white/10 transition-colors">
-            Chat on WhatsApp
+            href="/contact"
+            className="inline-flex items-center gap-3 bg-[var(--color-inverse-ink)] px-8 py-4 font-semibold text-[var(--color-inverse-bg)] transition-colors duration-300 hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-ink)]"
+          >
+            Get your free store review <span aria-hidden="true">→</span>
+          </Link>
+          <a
+            href="mailto:zyrusdigital@gmail.com"
+            className="border-b border-current pb-1 font-semibold transition-colors duration-300 hover:text-[var(--color-accent)]"
+          >
+            zyrusdigital@gmail.com
           </a>
         </div>
       </div>
