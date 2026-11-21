@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
 
         <div className="hidden lg:col-span-5 lg:block lg:h-[78svh]" aria-hidden="true">
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full [mask-image:radial-gradient(closest-side,black_55%,transparent_100%)] [-webkit-mask-image:radial-gradient(closest-side,black_55%,transparent_100%)]">
             <HeroObjectLoader />
           </div>
         </div>
