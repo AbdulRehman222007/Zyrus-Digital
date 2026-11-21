@@ -13,7 +13,7 @@ export default function CaseStudy() {
       className="scroll-mt-20 bg-[var(--color-inverse-bg)] px-[var(--gutter)] py-[var(--section-y)] text-[var(--color-inverse-ink)]"
     >
       <div className="mx-auto max-w-[90rem]">
-        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-s)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
           Featured case study
         </p>
 
