@@ -58,6 +58,9 @@ export default function Hero() {
               fill
               className="object-cover transition-transform duration-1000 hover:scale-105"
             />
+            <div className="absolute inset-0 z-10">
+              <HeroObjectLoader />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#33241F]/40 via-transparent to-transparent"></div>
           </div>
 
