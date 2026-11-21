@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-24 flex flex-col gap-4 border-t border-[var(--color-rule)] pt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-mute)] md:flex-row md:justify-between">
-          <span>© 2026 Zyrus Digital. Karachi.</span>
+          <span>© 2026 Zyrus Digital. Pakistan.</span>
           <span>Shopify, WooCommerce, performance, growth</span>
         </div>
       </div>
