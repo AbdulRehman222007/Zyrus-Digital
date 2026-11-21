@@ -1,98 +1,69 @@
-import Image from "next/image";
 import Link from "next/link";
 import HeroObjectLoader from "./HeroObjectLoader";
 
+const proof = [
+  { value: "80%+", label: "Mobile speed improvement" },
+  { value: "100", label: "SEO score at launch" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#EAD8C0] to-[#FFF5E8] py-20 lg:py-0 overflow-hidden">
-
-      <div className="max-w-[1400px] w-full mx-auto px-5 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 relative z-10">
-
-        <div className="lg:col-span-7 flex flex-col justify-center lg:pr-10 xl:pr-20">
-
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-2 h-2 rounded-full bg-[#8A5A3B] animate-pulse"></span>
-            <span className="text-xs font-bold tracking-[0.2em] text-[#8A5A3B] uppercase">
-              Available for new projects
-            </span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl xl:text-[5.5rem] leading-[1.05] tracking-tight text-[#33241F] font-bold">
-            We build online stores that <br className="hidden lg:block" />
-            <span className="font-serif italic text-[#8A5A3B] font-normal">load fast</span> and <br className="hidden lg:block" />
-            <span className="font-serif italic text-[#8A5A3B] font-normal">sell.</span>
-          </h1>
-
-          <p className="mt-8 text-lg md:text-xl text-[#5A4A45] max-w-xl font-light leading-relaxed">
-            Shopify and WooCommerce development, launch, and social media growth for e-commerce brands that demand excellence.
+    <section className="relative isolate overflow-hidden bg-[var(--color-paper)] text-[var(--color-ink)]">
+      <div className="mx-auto grid min-h-[100svh] max-w-[90rem] items-center gap-12 px-[var(--gutter)] pb-20 pt-40 lg:grid-cols-12 lg:pb-28">
+        <div className="relative z-10 lg:col-span-7">
+          <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+            Shopify and WooCommerce engineering
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-5">
+          <h1 className="mt-8 [font-family:var(--font-display)] [font-size:var(--text-3xl)] [font-weight:var(--weight-display)] leading-[var(--leading-tight)] tracking-[var(--tracking-display-xl)]">
+            We build stores that load fast{" "}
+            <em className="[font-family:var(--font-body)] font-normal italic text-[var(--color-accent)]">
+              and sell.
+            </em>
+          </h1>
+
+          <p className="mt-10 max-w-xl text-[length:var(--text-md)] leading-[1.5] text-[var(--color-ink-soft)]">
+            Shopify and WooCommerce development, launch, and growth for ecommerce brands that need a store that performs.
+          </p>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-6">
             <Link
               href="/contact"
-              className="group relative flex items-center justify-center gap-3 bg-[#8A5A3B] text-[#FFF5E8] font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#6F472D] hover:scale-[1.02] shadow-[0_10px_30px_-10px_rgba(138,90,59,0.5)] overflow-hidden"
+              className="inline-flex items-center gap-3 bg-[var(--color-inverse-bg)] px-8 py-4 font-semibold text-[var(--color-inverse-ink)] transition-colors duration-300 hover:bg-[var(--color-accent)]"
             >
-              <span className="relative z-10">Get a free store review</span>
-              <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
+              Get your free store review <span aria-hidden="true">→</span>
             </Link>
-
             <a
-              href="#work"
-              className="group flex items-center justify-center gap-3 bg-transparent text-[#33241F] font-semibold px-8 py-4 rounded-full border border-[#33241F]/20 transition-all duration-300 hover:border-[#33241F] hover:bg-[#33241F]/5"
+              href="#case"
+              className="border-b border-[var(--color-ink)] pb-1 font-semibold transition-colors hover:text-[var(--color-accent)]"
             >
-              See our work
-              <span className="opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                ↗
-              </span>
+              See the SWRV build
             </a>
           </div>
-        </div>
 
-        <div className="lg:col-span-5 relative mt-10 lg:mt-0">
-          <div className="relative w-full h-[450px] lg:h-[750px] rounded-[2rem] overflow-hidden shadow-2xl lg:-mr-20 xl:-mr-40">
-            <Image
-              src="/assets/work/team-working.jpg"
-              alt="Zyrus Agency team collaborating"
-              fill
-              className="object-cover transition-transform duration-1000 hover:scale-105"
-            />
-            <div className="absolute inset-0 z-10">
-              <HeroObjectLoader />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#33241F]/40 via-transparent to-transparent"></div>
-          </div>
+          <p className="mt-6 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-mute)]">
+            A PDF audit of your store with three recommendations to raise conversions
+          </p>
 
-          <div className="absolute bottom-6 -left-4 sm:-left-12 bg-[#FFF5E8]/95 backdrop-blur-md p-5 rounded-2xl shadow-2xl border border-white/40 flex flex-col gap-3 w-[280px] max-w-[calc(100vw-2rem)] z-20">
-
-            <div className="flex items-center gap-3 mb-1">
-              <div className="w-8 h-8 rounded-full bg-[#8A5A3B]/10 flex items-center justify-center shrink-0 text-[#8A5A3B]">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
+          <div className="mt-20 grid max-w-xl grid-cols-2 border-t border-[var(--color-rule)]">
+            {proof.map((p) => (
+              <div key={p.label} className="pr-6 pt-6">
+                <span className="block [font-family:var(--font-display)] [font-size:var(--text-xl)] [font-weight:var(--weight-display)] tracking-[var(--tracking-display-xl)] tabular-nums">
+                  {p.value}
+                </span>
+                <span className="mt-2 block font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-mute)]">
+                  {p.label}
+                </span>
               </div>
-              <span className="text-sm font-bold text-[#33241F] leading-tight">What you get:</span>
-            </div>
-
-            <ul className="flex flex-col gap-2">
-              <li className="flex items-start gap-2 text-[11px] text-[#5A4A45] font-medium leading-tight">
-                <span className="text-[#8A5A3B] mt-0.5">•</span>
-                A personalized PDF audit of your current store.
-              </li>
-              <li className="flex items-start gap-2 text-[11px] text-[#5A4A45] font-medium leading-tight">
-                <span className="text-[#8A5A3B] mt-0.5">•</span>
-                3 actionable recommendations to increase conversions.
-              </li>
-              <li className="flex items-start gap-2 text-[11px] text-[#5A4A45] font-medium leading-tight">
-                <span className="text-[#8A5A3B] mt-0.5">•</span>
-                No sales pitch, just honest strategy.
-              </li>
-            </ul>
-
+            ))}
           </div>
         </div>
 
+        <div className="hidden lg:col-span-5 lg:block lg:h-[78svh]" aria-hidden="true">
+          <div className="relative h-full w-full">
+            <HeroObjectLoader />
+          </div>
+        </div>
       </div>
     </section>
   );
