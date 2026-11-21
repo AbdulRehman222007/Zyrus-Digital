@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SmoothScroll from "./components/SmoothScroll";
 import {
   Bricolage_Grotesque,
   Source_Serif_4,
