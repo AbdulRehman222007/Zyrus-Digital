@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const title = "About Zyrus Digital";
 const description =
-  "Zyrus Digital is a Karachi agency that builds, launches and grows Shopify and WooCommerce stores. Here is how we work and who we work with.";
+  "Zyrus Digital is a Karachi agency that builds, launches and grows Shopify and WooCommerce stores. Here is who we are, what we are working toward, and how we work.";
 
 export const metadata: Metadata = {
   title,
@@ -23,10 +23,12 @@ const h2 =
   "[font-family:var(--font-display)] [font-size:var(--text-2xl)] [font-weight:var(--weight-display)] leading-[0.96] tracking-[var(--tracking-display-lg)]";
 const section = "px-[var(--gutter)] py-[var(--section-y)]";
 const wrap = "mx-auto max-w-[90rem]";
+const cta =
+  "inline-flex items-center gap-3 bg-[var(--color-inverse-ink)] px-8 py-4 font-semibold text-[var(--color-inverse-bg)] transition-colors duration-300 hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-ink)]";
 
 const principles = [
   {
-    title: "Performance is the starting point",
+    title: "Performance comes first",
     text: "We measure speed and checkout before we design anything. Layout decisions follow from what the numbers show.",
   },
   {
@@ -46,18 +48,52 @@ const principles = [
 export default function AboutPage() {
   return (
     <main className="bg-[var(--color-paper)] text-[var(--color-ink)]">
-      {/* Intro */}
+      {/* Hero */}
       <section className="px-[var(--gutter)] pb-[var(--section-y)] pt-40">
         <div className={wrap}>
           <p className={`${label} text-[var(--color-accent)]`}>About</p>
           <h1 className="mt-8 max-w-5xl [font-family:var(--font-display)] [font-size:var(--text-3xl)] [font-weight:var(--weight-display)] leading-[var(--leading-tight)] tracking-[var(--tracking-display-xl)]">
-            We build stores that{" "}
+            The team behind stores that{" "}
             <em className="[font-family:var(--font-body)] font-normal italic text-[var(--color-accent)]">
-              earn their place.
+              load fast and sell.
             </em>
           </h1>
-          <p className="mt-16 max-w-2xl text-[length:var(--text-md)] leading-[1.5] text-[var(--color-ink-soft)]">
-            Zyrus Digital is a digital marketing and web development agency based in Karachi. We build Shopify and WooCommerce stores for brands that sell, then help them grow through search, social and paid channels.
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className={`${section} pt-0`}>
+        <div className={`${wrap} grid gap-12 lg:grid-cols-12`}>
+          <div className="lg:col-span-4">
+            <p className={`${label} text-[var(--color-accent)]`}>Introduction</p>
+          </div>
+          <div className="space-y-6 text-[length:var(--text-md)] leading-[1.5] text-[var(--color-ink-soft)] lg:col-span-7 lg:col-start-6">
+            <p>
+              Zyrus Digital is a digital agency based in Karachi. We build Shopify and WooCommerce stores, launch them
+              properly, and grow them through search, social and paid channels.
+            </p>
+            <p>
+              The same team handles the build and the marketing, so nothing is lost between a developer and a marketer.
+              We work with ecommerce brands in Pakistan and beyond, and we build for local markets, local customers and
+              local payment habits from the first day.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className={`${section} bg-[var(--color-inverse-bg)] text-[var(--color-inverse-ink)]`}>
+        <div className={wrap}>
+          <p className={`${label} text-[var(--color-accent)]`}>Our mission</p>
+          <h2 className={`${h2} mt-8 max-w-5xl`}>
+            Make every store faster, clearer and easier to sell from.{" "}
+            <em className="[font-family:var(--font-body)] font-normal italic text-[var(--color-accent)]">
+              Then stay accountable for the results.
+            </em>
+          </h2>
+          <p className="mt-10 max-w-2xl text-[length:var(--text-md)] leading-[1.5] opacity-80">
+            A store that loads slowly or confuses a buyer loses sales before any marketing can help. Our job is to
+            remove those problems at the start, and to keep watching the numbers after launch.
           </p>
         </div>
       </section>
@@ -100,10 +136,7 @@ export default function AboutPage() {
             </em>
           </h2>
           <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-6">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-[var(--color-inverse-ink)] px-8 py-4 font-semibold text-[var(--color-inverse-bg)] transition-colors duration-300 hover:bg-[var(--color-accent)] hover:text-[var(--color-accent-ink)]"
-            >
+            <Link href="/contact" className={cta}>
               Get a free store review <span aria-hidden="true">→</span>
             </Link>
             <Link
