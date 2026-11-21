@@ -1,73 +1,64 @@
-import Image from "next/image";
+import Link from "next/link";
 
-const results = [
-  { label: "Mobile Speed", value: "80%+" },
-  { label: "SEO Score", value: "100/100" },
-  { label: "Store Built", value: "From Scratch" },
+const stats = [
+  { value: "80%+", label: "Mobile speed improvement" },
+  { value: "100", label: "SEO score" },
+  { value: "Custom", label: "Theme built from scratch" },
 ];
 
 export default function CaseStudy() {
   return (
-    <section id="work" className="relative py-24 md:py-32 bg-[#EAD8C0] overflow-hidden">
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 text-[20vw] font-black text-[#33241F] opacity-[0.02] whitespace-nowrap pointer-events-none z-0 tracking-tighter">
-        SWRV
-      </div>
+    <section
+      id="case"
+      className="scroll-mt-20 bg-[var(--color-inverse-bg)] px-[var(--gutter)] py-[var(--section-y)] text-[var(--color-inverse-ink)]"
+    >
+      <div className="mx-auto max-w-[90rem]">
+        <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] text-[var(--color-accent)]">
+          Featured case study
+        </p>
 
-      <div className="max-w-[1400px] mx-auto px-5 lg:px-10 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-          {/* Left: Image with stat card */}
-          <div className="lg:col-span-7 relative group">
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-[#FFF5E8]">
-              <Image
-                src="/assets/work/swrv-desktop.png"
-                alt="SWRV Attire storefront"
-                width={1200}
-                height={800}
-                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#33241F]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
+        <h2 className="mt-8 max-w-5xl [font-family:var(--font-display)] [font-size:var(--text-2xl)] [font-weight:var(--weight-display)] leading-[0.96] tracking-[var(--tracking-display-lg)]">
+          SWRV Attire,{" "}
+          <em className="[font-family:var(--font-body)] font-normal italic text-[var(--color-accent)]">
+            from a blank page to a live store.
+          </em>
+        </h2>
 
-            {/* Stat Card */}
-            <div className="relative mt-4 mx-2 md:mt-0 md:mx-0 md:absolute md:-bottom-8 md:right-16 bg-[#FFF5E8]/95 backdrop-blur-md p-5 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(138,90,59,0.3)] border border-[#D9B48F]/50 z-20">
-              <div className="flex flex-col gap-4">
-                {results.map((r, i) => (
-                  <div key={i} className="flex items-center justify-between gap-8 border-b border-[#D9B48F]/30 pb-3 last:border-0 last:pb-0">
-                    <span className="text-xs font-bold text-[#8A5A3B] uppercase tracking-wider">{r.label}</span>
-                    <span className="text-lg font-bold text-[#33241F]">{r.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Editorial Text */}
-          <div className="lg:col-span-5 lg:pl-16 xl:pl-24 flex flex-col justify-center mt-12 lg:mt-0">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-8 h-px bg-[#8A5A3B]"></span>
-              <span className="text-xs font-bold tracking-[0.2em] text-[#8A5A3B] uppercase">
-                Featured Case Study
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#33241F] tracking-tight leading-[1.1] mb-6">
-              SWRV <br />
-              <span className="font-serif italic text-[#8A5A3B] font-normal">Attire.</span>
-            </h2>
-
-            <p className="text-lg text-[#5A4A45] font-light leading-relaxed mb-10">
-              Built from scratch, with socials fully managed by us. We took SWRV from a concept to a thriving online store, focusing on speed, aesthetic, and conversion.
+        <div className="mt-20 grid gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <p className="text-[length:var(--text-md)] leading-[1.5] opacity-80">
+              SWRV is a Karachi streetwear brand. We built its store from the first page, tuned it for mobile speed, and manage its social media alongside the site, so the brand reads the same from Instagram to checkout.
             </p>
-
-            <a
+            <Link
               href="/portfolio/swrv-attire"
-              className="group self-start flex items-center gap-3 text-sm font-bold text-[#33241F] uppercase tracking-widest hover:text-[#8A5A3B] transition-colors duration-300"
+              className="mt-10 inline-flex items-center gap-3 border-b border-current pb-1 font-semibold transition-colors duration-300 hover:text-[var(--color-accent)]"
             >
-              Read the full case study
-              <span className="w-10 h-px bg-[#33241F] group-hover:bg-[#8A5A3B] group-hover:w-16 transition-all duration-300"></span>
-            </a>
+              Read the full case study <span aria-hidden="true">→</span>
+            </Link>
           </div>
+
+          <blockquote className="border-l-2 border-[var(--color-accent)] pl-8 lg:col-span-5 lg:col-start-8">
+            <p className="[font-family:var(--font-body)] text-[length:var(--text-lg)] italic leading-[1.25]">
+              “Zyrus Agency built our website from scratch and continues to manage our digital marketing. They understood our vision and turned it into a website and online presence that genuinely represents our brand.”
+            </p>
+            <footer className="mt-8 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] opacity-70">
+              AR, Founder, SWRV Attire
+            </footer>
+          </blockquote>
         </div>
+
+        <dl className="mt-24 grid grid-cols-1 border-t border-current/20 sm:grid-cols-3">
+          {stats.map((s) => (
+            <div key={s.label} className="border-b border-current/20 py-8 sm:border-b-0 sm:pr-8 sm:pt-8">
+              <dt className="order-2 mt-3 font-[family-name:var(--font-mono)] text-[length:var(--text-xs)] uppercase tracking-[var(--tracking-label)] opacity-70">
+                {s.label}
+              </dt>
+              <dd className="m-0 [font-family:var(--font-display)] [font-size:var(--text-xl)] [font-weight:var(--weight-display)] tracking-[var(--tracking-display-xl)] tabular-nums">
+                {s.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
